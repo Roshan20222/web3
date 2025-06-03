@@ -98,9 +98,23 @@
         </section>
         <section class="contact">
             <h2>Contact</h2>
-            <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+            <p>Email: <a href="mailto:pandeyroshan2021@outllook.com">pandeyroshan2021@outllook.com</a></p>
             <p>GitHub: <a href="https://github.com/Roshan20222" target="_blank">github.com/Roshan20222</a></p>
+            <p>Telegram: <a href="https://t.me/roshanpandey2022" target="_blank">@roshanpandey2022</a></p>
+            <p>Feel free to contact me via email or GitHub for any opportunities or questions!</p>
+            <div style="margin-top:2rem;font-size:1.1rem;color:#3949ab;">
+                <strong>Live Time:</strong> <span id="live-time"></span><br>
+                <strong>Date:</strong> <span id="live-date"></span>
+            </div>
+            <script>
+                function updateTime() {
+                    const now = new Date();
+                    document.getElementById('live-time').textContent = now.toLocaleTimeString();
+                    document.getElementById('live-date').textContent = now.toLocaleDateString();
+                }
+                setInterval(updateTime, 1000);
+                updateTime();
+            </script>
         </section>
     </div>
 </body>
