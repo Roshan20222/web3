@@ -1,6 +1,10 @@
-// console.log(`hello`);
-// console.log(`i like pizza`);
-
-// window.alert(`this is an alert`);
-document.getElementById("myH1").textContent = "Hello World!";
-document.getElementById("myP").textContent = "I like pizza!";
+function changeText() {
+  // Access the element by ID
+  const heading = document.getElementById("title");
+  
+  // Change the text content
+  heading.textContent = "You clicked the button!";
+  
+  // Change the style
+  heading.style.color = "blue";
+}
