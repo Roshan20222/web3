@@ -19,6 +19,19 @@ app.use((req, res, next) => {
 // Serve static files (index.html, style.css, script.js)
 app.use(express.static(__dirname));
 
+// Example route: demonstrate header and query parameter usage
+app.get('/example', (req, res) => {
+  // Get a custom header (e.g., x-user)
+  const userHeader = req.header('x-user');
+  // Get a query parameter (e.g., ?id=123)
+  const id = req.query.id;
+  res.json({
+    message: 'Header and query parameter example',
+    userHeader: userHeader || null,
+    id: id || null
+  });
+});
+
 // 404 handler
 app.use((req, res) => {
   res.status(404).send('404 Not Found');
