@@ -21,15 +21,19 @@ app.use(express.static(__dirname));
 
 // Example route: demonstrate header and query parameter usage
 app.get('/example', (req, res) => {
-  // Get a custom header (e.g., x-user)
-  const userHeader = req.get('x-user');
+  // Get a custom header (e.g., x-user or X-User)
+  const userHeader = req.headers['x-user'] || req.headers['X-User'] || req.get('x-user') || req.get('X-User');
   // Get a query parameter (e.g., ?id=123)
   const id = req.query.id;
-  res.setHeader('Content-Type', 'application/json');
+  if (!userHeader || !id) {
+    return res.status(400).json({
+      error: 'Missing x-user header or id query parameter'
+    });
+  }
   res.status(200).json({
     message: 'Header and query parameter example',
-    userHeader: userHeader || null,
-    id: id || null
+    userHeader: userHeader,
+    id: id
   });
 });
 
